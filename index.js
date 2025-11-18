@@ -5,7 +5,7 @@ const bodyParser = require("body-parser");
 
 app.use(
   cors({
-    origin: ["http://localhost:5173"], // Add all frontend URLs explicitly
+    origin: ["http://ec2-3-110-208-132.ap-south-1.compute.amazonaws.com/"], // Add all frontend URLs explicitly
     methods: ["GET", "POST", "PUT", "DELETE"],
     credentials: true,
     allowedHeaders: [
