@@ -24,7 +24,7 @@ app.listen(8080, () => {
 });
 
 app.get("/", (req, res) => {
-  res.send("Hello World!");
+  res.send("Hello World this deploys automatically!");
 });
 
 app.get("/api/data", (req, res) => {
