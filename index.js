@@ -2,10 +2,18 @@ const express = require("express");
 const app = express();
 const cors = require("cors");
 const bodyParser = require("body-parser");
+const mongoose = require("mongoose");
+
+// mongoose.connect().then(() => {
+//   console.log("Connected to MongoDB");
+// })
 
 app.use(
   cors({
-    origin: ["http://ec2-3-110-208-132.ap-south-1.compute.amazonaws.com"], // Add all frontend URLs explicitly
+    origin: [
+      "http://ec2-3-110-208-132.ap-south-1.compute.amazonaws.com",
+      "http://localhost:5173",
+    ], // Add all frontend URLs explicitly
     methods: ["GET", "POST", "PUT", "DELETE"],
     credentials: true,
     allowedHeaders: [
@@ -19,8 +27,10 @@ app.use(
 
 app.use(bodyParser.json());
 
-app.listen(8080, () => {
-  console.log("Server is running on port 8080");
+const PORT = process.env.PORT || 8080;
+
+app.listen(PORT, () => {
+  console.log(`Server is running on port ${PORT}`);
 });
 
 app.get("/", (req, res) => {
